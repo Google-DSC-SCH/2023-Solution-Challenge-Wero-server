@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "solution-challenge-wero",
+  "private_key_id": "2fc09ab2afeff834d5d50dd3747f3cede968275e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCT1dDZlB56G9F3\n6dYkVssciRU+07io4o5EI/iPzsD6KUffzWRdppTUQ5DhLWEKulpMSN4INEgmz2VG\n2dfLYPx0jWpUwdh2bOab+ClOqoVcfqQ/ZKremX2cXWGd6Uym/e2hTClMsSe4nPpw\nSzX/ULy4+tq9/UAADEES1i4VHViyhN57MAipNulW3VJ+ATlkhWHKGOOs+33vM2Du\nNtTVuGTfRlHoWkvNpcXEbySaw4NRRWZnad+8p9RcbrmfL69rDCM6RQWdhUcjyV4k\ndyn/79CePS/bZqjZfZQ5uybN/hun1RytnTlElTATAFAJ+pbCMTvcdSVmOuIk/n7c\nu/Z7BmYbAgMBAAECggEADN57DMW5FXYgeOjRLF6l1bkVMV/q3kDCk6nx9ErSP7Si\nPhg6GXDr2cJ79S4nGXD5dVSOh3ZNpZs+PLmv8FNkBp1c2T36oux98qvapK9xZojb\nsW0I9tGzvo3edomdk5fdPMJNghCV3ZtErcvOSohztUKZEhrenGJ0s7gTUOE6HGgU\nuryMoJPPxW8wUKr+UcVSctrfIKb7KVNs/MofCJDQPBcjhhEEeAlgA6DlFfH9/SQC\nJxfH8jLkqUGAwBkFivYI6lF6xUUZIUrTWQGJaoSLGBdrsK3Mjd3HSbsC+imXWHaN\ncOLokRod/6TWCp8QFcfyI9+TpRW/FUTx2WWNuWr8IQKBgQDEpOphyf8F9Mf/AbhT\nbyItBwyt+9hk5qCWPWhRz0GVf6S6lEvbE2+GqrraU+i1QV8hm0ZaXdGR7UOAIxSh\nw4K0+QQ2ZLw+tmpTSxLRnK3E0MulHrLJaKgXgaEvwkUvEPIo4Xfm1/WAt9iUXr/P\nyNrAJERLOWMg5D1g4sxvF0EPUQKBgQDAdVWFQaZZhcJSjLHEUH7iAh/o5BAf+Zq4\nX3J8Q3QJcYTMzsJyS6bri//p8RlcWSHYyKRCd0FJpvBC4ZLV1VN/vU8es/ejT59c\nhoRSGmLdmYwd03ni9LNU+9iZKfDymZVfEaNlAFCRy6i2Q3qOCYkafO0pHy8R7woe\nuUzy6BG7qwKBgCWYqj88EYgf/sTgnU9GZjBZsrDo/7x646UV5IYPrChbGTGa/M3L\n73y906++bzWIZBnWyCKq4VCXHlq3WlB7Qtg66/VCWUNcOQPnzJdK72Y7zVOqhOBB\nJDIqVJj++Z9ADCyIvxXhoEyV2dC0NNQTQM+Pn4cKV8uIF7wYYKG0vnmhAoGAePUF\nc8PH7fnAIKumShChPiBBt9gmPkJcuEXcqTanpgu/gAzubnEXjnClvX03CDBIsnuf\nqNpUoRqXZCFrbJMvcFglctF+8Rfou3kbjpJg0o9fXZt8vmQ2lVHXVqPieEaId4CZ\nZbAl8wvBlBOi4cQidBBR6YdcyPOoM5kYQI4UHxMCgYA+17r2qCPNhijAbR1AzGzk\ndvhEIrIy2ao9q+NFZU1BhVMp0CFs/fwwP0tIDBZ+8yy68paeM5FtsWm/ypUoTqKb\nF3TUJaQYaaudZiw9ZfDxRmfW6RSmWw2XwbetrAZ+cqRE4DJWtgflQlOK/NfV664t\nvZI9CyQqmrFIFhNBkfb25A==\n-----END PRIVATE KEY-----\n",
+  "client_email": "wero-gcs@solution-challenge-wero.iam.gserviceaccount.com",
+  "client_id": "114798571895119699646",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/wero-gcs%40solution-challenge-wero.iam.gserviceaccount.com"
+}

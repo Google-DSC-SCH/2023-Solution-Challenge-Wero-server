@@ -1,0 +1,12 @@
+server:
+  port: 9999
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher # swagger 에러 해결
+  profiles:
+    include:
+      - db
+      - oauth
+      - cloud
