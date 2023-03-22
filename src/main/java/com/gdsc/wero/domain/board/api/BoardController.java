@@ -69,7 +69,6 @@ public class BoardController {
             try {
                 BlobInfo blobInfo = gcsService.uploadFileToGCS(imgFile);
                 log.info("========== link : " + blobInfo.getMediaLink());
-                log.info("========== link : " + blobInfo.getSelfLink());
                 img = blobInfo.getMediaLink();
 
                 log.info("============ IMAGE HAS BEEN SAVED =============");
@@ -94,8 +93,7 @@ public class BoardController {
             @ApiResponse(responseCode = "400", description = "잘못된 파라미터"),
             @ApiResponse(responseCode = "500", description = "서버 에러")
     })
-    @PutMapping("/{boardId}")
-    @PostMapping(value = "", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
+    @PutMapping(value ="/{boardId}", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
     public String updateBoard(@PathVariable(value = "boardId") Long boardId, @RequestPart BoardReqDto boardReqDto, @RequestPart(required = false) MultipartFile imgFile) {
 
         // GCS
@@ -105,13 +103,14 @@ public class BoardController {
             try {
                 BlobInfo blobInfo = gcsService.uploadFileToGCS(imgFile);
                 log.info("========== link : " + blobInfo.getMediaLink());
-                log.info("========== link : " + blobInfo.getSelfLink());
                 img = blobInfo.getMediaLink();
 
                 log.info("============ IMAGE HAS BEEN SAVED =============");
 
             } catch (IOException e) {
                 // 예외 던지기
+
+                log.info("============ IMAGE FAIL =============");
                 log.error(e.getMessage());
                 throw new GcsUploadFailException(e.getMessage());
             }
