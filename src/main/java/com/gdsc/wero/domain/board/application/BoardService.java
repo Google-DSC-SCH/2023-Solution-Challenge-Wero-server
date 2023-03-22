@@ -59,10 +59,10 @@ public class BoardService {
     /**
      * 게시물 수정
      */
-    public void updateBoard(BoardReqDto boardReqDto, Long boardId) {
+    public void updateBoard(BoardReqDto boardReqDto, String img, Long boardId) {
         Board board = boardRepository.findById(boardId).orElseThrow(() -> new BoardNotExistException("This Post does not exist | boardId : " + boardId));
 
-        board.updateBoard(boardReqDto);
+        board.updateBoard(boardReqDto, img);
 
         log.info("================ POST IS BEING UPDATED ==================");
 

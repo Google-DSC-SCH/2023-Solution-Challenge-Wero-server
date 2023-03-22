@@ -58,9 +58,10 @@ public class Board extends BaseTimeEntity {
     /**
      * Board 수정 메서드
      */
-    public void updateBoard(BoardReqDto boardReqDto) {
+    public void updateBoard(BoardReqDto boardReqDto, String img) {
         this.title = boardReqDto.getTitle();
         this.contents = boardReqDto.getContents();
+        this.img = img;
 
     }
 

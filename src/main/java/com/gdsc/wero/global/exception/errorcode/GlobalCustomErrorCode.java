@@ -12,7 +12,8 @@ public enum GlobalCustomErrorCode {
     UserNotFoundException("S002"),
     BoardNotExistException("S003"),
     ReplyNotExistException("S004"),
-    IllegalStateException("S005");
+    IllegalStateException("S005"),
+    GcsUploadFailException("S006");
 
 
 

@@ -4,7 +4,7 @@ import com.gdsc.wero.domain.board.api.dto.request.BoardReqDto;
 import com.gdsc.wero.domain.board.api.dto.response.BoardResListDto;
 import com.gdsc.wero.domain.board.application.BoardService;
 import com.gdsc.wero.global.auth.jwt.JwtUtils;
-import com.gdsc.wero.global.exception.errortype.SaveFailException;
+import com.gdsc.wero.global.exception.errortype.GcsUploadFailException;
 import com.gdsc.wero.global.util.gcs.GcsInfoProperties;
 import com.gdsc.wero.global.util.gcs.GcsService;
 import com.google.cloud.storage.BlobInfo;
@@ -62,8 +62,6 @@ public class BoardController {
         Map<String, Object> userEmailAndProviderFromJwtToken = jwtUtils.getUserEmailAndProviderFromJwtToken(jwtFromHeader);
         String email = (String)userEmailAndProviderFromJwtToken.get("email");
         String provider = (String)userEmailAndProviderFromJwtToken.get("provider");
-//        https://storage.googleapis.com/wero-gcs-bucket/%E1%84%80%E1%85%A9%E1%84%89%E1%85%B3%E1%86%B7%E1%84%83%E1%85%A9%E1%84%8E%E1%85%B5.jpeg427-4f2d-b77b-d1c793769185
-//        https://storage.googleapis.com/wero-gcp-bucket/고슴도치.jpeg427-4f2d-b77b-d1c793769185
         // GCS
         String img = "empty";
 
@@ -77,8 +75,8 @@ public class BoardController {
                 log.info("============ IMAGE HAS BEEN SAVED =============");
 
             } catch (IOException e) {
-                // 예외 던지기
                 log.error(e.getMessage());
+                throw new GcsUploadFailException(e.getMessage());
             }
         }
 
@@ -97,9 +95,29 @@ public class BoardController {
             @ApiResponse(responseCode = "500", description = "서버 에러")
     })
     @PutMapping("/{boardId}")
-    public String updateBoard(@PathVariable(value = "boardId") Long boardId, @RequestBody BoardReqDto boardReqDto) {
+    @PostMapping(value = "", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
+    public String updateBoard(@PathVariable(value = "boardId") Long boardId, @RequestPart BoardReqDto boardReqDto, @RequestPart(required = false) MultipartFile imgFile) {
 
-        boardService.updateBoard(boardReqDto, boardId);
+        // GCS
+        String img = "empty";
+
+        if(!(imgFile == null)){
+            try {
+                BlobInfo blobInfo = gcsService.uploadFileToGCS(imgFile);
+                log.info("========== link : " + blobInfo.getMediaLink());
+                log.info("========== link : " + blobInfo.getSelfLink());
+                img = blobInfo.getMediaLink();
+
+                log.info("============ IMAGE HAS BEEN SAVED =============");
+
+            } catch (IOException e) {
+                // 예외 던지기
+                log.error(e.getMessage());
+                throw new GcsUploadFailException(e.getMessage());
+            }
+        }
+
+        boardService.updateBoard(boardReqDto, img, boardId);
 
         log.info("=============== POST HAS BEEN UPDATED =================");
 

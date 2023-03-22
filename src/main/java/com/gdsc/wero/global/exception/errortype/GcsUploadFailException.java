@@ -1,9 +1,9 @@
 package com.gdsc.wero.global.exception.errortype;
 
-public class SaveFailException extends RuntimeException{
+public class GcsUploadFailException extends RuntimeException{
     private static final long serialVersionUID = 1L;
 
-    public SaveFailException(String message){
+    public GcsUploadFailException(String message) {
         super(message);
     }
 }

@@ -7,6 +7,7 @@ import com.gdsc.wero.global.auth.jwt.exception.errorcode.AuthCustomErrorCode;
 import com.gdsc.wero.global.auth.jwt.exception.errortype.RefreshTokenNotFoundException;
 import com.gdsc.wero.global.auth.jwt.exception.errortype.RefreshTokenExpiredException;
 import com.gdsc.wero.global.exception.errorcode.GlobalCustomErrorCode;
+import com.gdsc.wero.global.exception.errortype.GcsUploadFailException;
 import com.gdsc.wero.global.exception.errortype.SaveFailException;
 import com.gdsc.wero.global.exception.errortype.UserNotFoundException;
 import lombok.extern.slf4j.Slf4j;
@@ -159,6 +160,20 @@ public class ExceptionControllerAdvice {
 
         return new ErrorMessage(
                 GlobalCustomErrorCode.IllegalStateException.code(),
+                new Date(),
+                ex.getMessage(),
+                request.getDescription(false)
+        );
+    }
+
+    @ExceptionHandler(value = GcsUploadFailException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // 500 error
+    public ErrorMessage handleIllegalStateException(GcsUploadFailException ex, WebRequest request) {
+
+        log.error(ex.getMessage());
+
+        return new ErrorMessage(
+                GlobalCustomErrorCode.GcsUploadFailException.code(),
                 new Date(),
                 ex.getMessage(),
                 request.getDescription(false)
