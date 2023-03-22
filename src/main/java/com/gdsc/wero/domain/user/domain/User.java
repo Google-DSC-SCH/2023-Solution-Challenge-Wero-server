@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "USERS")
+@Table(name = "users")
 public class User extends BaseTimeEntity implements Persistable<String> {
 
     @Id

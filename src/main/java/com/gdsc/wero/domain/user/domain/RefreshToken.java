@@ -12,7 +12,7 @@ import java.util.UUID;
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "REFRESH_TOKEN")
+@Table(name = "refresh_token")
 public class RefreshToken {
 
     @Id
