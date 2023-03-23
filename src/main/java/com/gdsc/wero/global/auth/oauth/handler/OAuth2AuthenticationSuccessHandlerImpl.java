@@ -50,7 +50,7 @@ public class OAuth2AuthenticationSuccessHandlerImpl implements AuthenticationSuc
         log.info("=========== Generated Access Token : " + accessToken + " ===============");
 
 
-        String uri = UriComponentsBuilder.fromUriString("http://localhost:9999/api/auth/login-success")
+        String uri = UriComponentsBuilder.fromUriString("http://seonghokim.com:9999/api/auth/login-success")
                 .queryParam("accessToken", accessToken)
                 .queryParam("refreshToken", refreshToken.getToken())
                 .build().toUriString();
