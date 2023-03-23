@@ -14,7 +14,7 @@ public class TestController {
     @GetMapping("/login")
     public String login() {
 
-        return "/login/social-login";
+        return "login/social-login";
     }
 
 
