@@ -25,6 +25,8 @@ public class OAuth2AuthenticationSuccessHandlerImpl implements AuthenticationSuc
     private final JwtUtils jwtUtils;
     private final RefreshTokenService refreshTokenService;
 
+    private final Oauth2InfoProperties oauth2InfoProperties;
+
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
@@ -50,7 +52,7 @@ public class OAuth2AuthenticationSuccessHandlerImpl implements AuthenticationSuc
         log.info("=========== Generated Access Token : " + accessToken + " ===============");
 
 
-        String uri = UriComponentsBuilder.fromUriString("http://seonghokim.com:9999/api/auth/login-success")
+        String uri = UriComponentsBuilder.fromUriString(oauth2InfoProperties.getUrl())
                 .queryParam("accessToken", accessToken)
                 .queryParam("refreshToken", refreshToken.getToken())
                 .build().toUriString();
