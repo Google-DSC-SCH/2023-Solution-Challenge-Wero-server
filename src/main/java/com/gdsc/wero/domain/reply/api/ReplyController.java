@@ -1,10 +1,10 @@
 package com.gdsc.wero.domain.reply.api;
 
 import com.gdsc.wero.domain.reply.api.dto.request.ReplyReqDto;
-import com.gdsc.wero.domain.reply.api.dto.response.ReplyInfoResDto;
 import com.gdsc.wero.domain.reply.api.dto.response.ReplyResListDto;
 import com.gdsc.wero.domain.reply.application.ReplyService;
-import com.gdsc.wero.global.auth.jwt.JwtUtils;
+import com.gdsc.wero.global.resolver.UserInfoFromHeader;
+import com.gdsc.wero.global.resolver.UserInfoFromHeaderDto;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -14,9 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @RestController
@@ -25,7 +22,6 @@ import java.util.Map;
 public class ReplyController {
 
     private final ReplyService replyService;
-    private final JwtUtils jwtUtils;
     @ApiOperation(value = "댓글 페이지 진입 api", notes = "댓글 페이지 진입 시 댓글 리스트를 리턴한다.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "댓글 리스트 리턴 성공"),
@@ -47,13 +43,10 @@ public class ReplyController {
             @ApiResponse(responseCode = "500", description = "서버 에러")
     })
     @PostMapping("/{boardId}")
-    public String saveBoard(@PathVariable(value = "boardId") Long boardId, @RequestBody ReplyReqDto replyReqDto, HttpServletRequest request) {
+    public String saveBoard(@PathVariable(value = "boardId") Long boardId, @RequestBody ReplyReqDto replyReqDto, @UserInfoFromHeader UserInfoFromHeaderDto userInfoFromHeaderDto) {
 
-
-        String jwtFromHeader = jwtUtils.getJwtFromHeader(request);
-        Map<String, Object> userEmailAndProviderFromJwtToken = jwtUtils.getUserEmailAndProviderFromJwtToken(jwtFromHeader);
-        String email = (String)userEmailAndProviderFromJwtToken.get("email");
-        String provider = (String)userEmailAndProviderFromJwtToken.get("provider");
+        String email = userInfoFromHeaderDto.getEmail();
+        String provider = userInfoFromHeaderDto.getProvider();
 
         replyService.saveReply(replyReqDto, boardId, email, provider);
 
