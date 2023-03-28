@@ -7,6 +7,8 @@ import com.gdsc.wero.domain.user.domain.RefreshToken;
 import com.gdsc.wero.global.exception.ErrorMessage;
 import com.gdsc.wero.global.auth.jwt.exception.errortype.RefreshTokenNotFoundException;
 import com.gdsc.wero.domain.user.application.RefreshTokenService;
+import com.gdsc.wero.global.resolver.UserInfoFromHeader;
+import com.gdsc.wero.global.resolver.UserInfoFromHeaderDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -54,7 +56,8 @@ public class AuthController {
      *
      */
     @PostMapping("/re-access-token")
-    public ResponseEntity<?> reAccessToken(HttpServletRequest request) {
+    public ResponseEntity<?> reAccessToken(HttpServletRequest request, @UserInfoFromHeader UserInfoFromHeaderDto userInfoFromHeaderDto) {
+
         log.warn("========== ACCESS TOKEN HAS BEEN EXPIRED =============");
 
         // refreshToken 조회(uuid)
@@ -63,12 +66,8 @@ public class AuthController {
         // 존재한다면(시간 비교)
         if ((refreshToken != null) && (refreshToken.length() > 0)) {
 
-            // access token을 통해 유저 정보 조회
-            String jwt = jwtUtils.getJwtFromHeader(request);
-            Map<String, Object> claims = jwtUtils.getUserEmailAndProviderFromJwtToken(jwt);
-
-            String email = (String) claims.get("email");
-            String provider = (String) claims.get("provider");
+            String email = userInfoFromHeaderDto.getEmail();
+            String provider = userInfoFromHeaderDto.getProvider();
 
             // refresh token db 조회 및 검증
             RefreshToken getRefreshToken = refreshTokenService.findByToken(refreshToken).orElseThrow(() -> new RefreshTokenNotFoundException(refreshToken, "Refresh token is not in database!"));
@@ -95,16 +94,12 @@ public class AuthController {
      * 403 에러 타기 전 db에서 삭제됨
      */
     @PostMapping("/refresh-token")
-    public ResponseEntity<?> refreshToken(HttpServletRequest request) {
+    public ResponseEntity<?> refreshToken(HttpServletRequest request, @UserInfoFromHeader UserInfoFromHeaderDto userInfoFromHeaderDto) {
+
         log.warn("======== REFRESH TOKEN HAS BEEN EXPIRED ==========");
 
-        // access token을 통해 유저 정보 조회
-        String jwt = jwtUtils.getJwtFromHeader(request);
-        Map<String, Object> claims = jwtUtils.getUserEmailAndProviderFromJwtToken(jwt);
-
-        String email = (String) claims.get("email");
-        String provider = (String) claims.get("provider");
-
+        String email = userInfoFromHeaderDto.getEmail();
+        String provider = userInfoFromHeaderDto.getProvider();
 
         // refreshToken db 생성 및 저장
         RefreshToken refreshToken =  refreshTokenService.createRefreshToken(email, provider);

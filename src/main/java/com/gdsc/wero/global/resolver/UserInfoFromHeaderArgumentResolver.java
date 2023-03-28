@@ -23,7 +23,6 @@ public class UserInfoFromHeaderArgumentResolver implements HandlerMethodArgument
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-//        return UserInfoFromHeader.class.isAssignableFrom(parameter.getParameterType());
         return parameter.getParameterType().equals(UserInfoFromHeaderDto.class);
     }
 

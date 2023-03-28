@@ -6,7 +6,6 @@ import com.gdsc.wero.domain.board.application.BoardService;
 import com.gdsc.wero.global.exception.errortype.GcsUploadFailException;
 import com.gdsc.wero.global.resolver.UserInfoFromHeader;
 import com.gdsc.wero.global.resolver.UserInfoFromHeaderDto;
-import com.gdsc.wero.global.util.gcs.GcsInfoProperties;
 import com.gdsc.wero.global.util.gcs.GcsService;
 import com.google.cloud.storage.BlobInfo;
 import io.swagger.annotations.ApiOperation;
