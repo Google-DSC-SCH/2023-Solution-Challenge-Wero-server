@@ -179,7 +179,7 @@ Wero is an application that can manage physical health as well as mental health,
 
 > You can post your concerns about your body and health according to the bulletin board function and communicate through comments. What should be noted here is that the author's PATI was exposed to posts and comments so that a consensus could be formed. Our bulletin board also provides news about mental and physical health. Useful news about physical and mental health will help you maintain a healthier lifestyle!
 
-- **Check the issues that are considered a lot by PATI (further development)**
+- **The ability to extract common concerns by collecting the most posted words by PATI type (further development)**
 
 <br>
 
