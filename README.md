@@ -149,7 +149,7 @@ Wero is an application that can manage physical health as well as mental health,
 
 <사진 영역>
 
-> We transformed the existing MBTI into PATI, which is WERO's MBTI. You can check the PATI type corresponding to your physical and mental health through 40 questions related to physical and mental health. Physical health and mental health are the criteria for PATI, and physical health can be checked through eating habits and activities, and mental health can be checked through self-esteem and interpersonal relationships.
+> We developed a PATI that can define types like MBTI. You can check the PATI type corresponding to your physical and mental health through 40 questions related to physical and mental health. Physical health and mental health are the criteria for PATI, and physical health can be checked through eating habits and activities, and mental health can be checked through self-esteem and interpersonal relationships.
 
 - Define PATI type through animals
   - **Eating habits (E, H) (elephant, hamster), activity (B, S) (Beagle, Sloth))**
