@@ -23,7 +23,7 @@
   - [Recommendation](#recommendation)
   - [Group Therapy](#group-therapy)
 - [Expected Effect](#expected-effect)
-- [How to connect server](#how-to-connect-server)
+- [How to run this application](#how-to-run-this-application)
 - [Contributor](#contributor)
 
 <br>
@@ -102,7 +102,7 @@ Wero is an application that can manage physical health as well as mental health,
 - DBeaver
 - Intellij
 
-### Frontend
+### App
 - Flutter 3.7.5
 - Dart 2.19.2
 - Intellij
@@ -221,16 +221,18 @@ Health applications can assist users in maintaining healthy social relationships
 <hr>
 <br>
 
-# How-to-connect-server
+# How-to-run-this-application
 
-### Frontend
+### App
+
+<정범님 설명>
 
 ### Backend
 
-The backend is deployed in GCP VM Instance. And the domain is http://seonghokim.com:9999 , so please refer to it.
+The backend server is deployed in GCP VM Instance. And the domain is http://seonghokim.com:9999, so please refer to it.<br>
 If you clone and use the project, you must create application-db.yml, application-oauth.yml, application-cloud.yml, and the Json file of GCP IAM Service Account in the resources directory. 
 
-Thank you
+Thank you.
 
 <br>
 <hr>
@@ -238,6 +240,35 @@ Thank you
 
 # Contributor
 
+<table>
+   <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/127945348?v=4" width="100px;" alt=""/><br>
+      <b>Min Ye Choi</b><br>
+      <img src="https://img.shields.io/badge/Design-UI/UX-FFCA28?style=flat-square&logo=firebase&logoColor=white"/><br>
+      :octocat: <a href="https://github.com/Celia63">Github Link</a><br>
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/56466165?v=4" width="100px;" alt=""/><br>
+      <b>Jeong Beom Han</b><br>
+      <img src="https://img.shields.io/badge/Front-end-FFCA28?style=flat-square&logo=firebase&logoColor=white"/><br>
+      :octocat: <a href="https://github.com/dino2331">Github Link</a><br>
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/74396651?v=4" width="100px;" alt=""/><br>
+      <b>Seong Ho Kim</b><br>
+      <img src="https://img.shields.io/badge/Back-end-FFCA28?style=flat-square&logo=firebase&logoColor=white"/><br>
+      :octocat: <a href="https://github.com/OOOIOOOIO">Github Link</a><br>
+    </td>
+    <td align="center">
+      <img src="https://avatars.githubusercontent.com/u/82595288?v=4" width="100px;" alt=""/><br>
+      <b>Min Ki Son</b><br>
+      <img src="https://img.shields.io/badge/Machine-Learing-FFCA28?style=flat-square&logo=firebase&logoColor=white"/><br>
+      :octocat: <a href="https://https://github.com/thflgg133">Github Link</a><br>
+    </td>
+  <tr>
+<table>
+
+<code>Click Github Link! you can contact us!!</code>
 
 
 
