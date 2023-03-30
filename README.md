@@ -12,16 +12,17 @@
 2023 GDSC Solution Challenge Project
 
 # Index
-- [Getting start](#getting-start)
+- [Getting Start](#getting-start)
 - [Skills](#skills)
+- [Google Technology](#google-technology)
 - [Architecture](#architecture)
 - [Functions](#functions)
   - [PATI](#pati)
   - [Diary](#diary)
-  - [Notice board](#notice-board)
+  - [Notice Board](#notice-board)
   - [Recommendation](#recommendation)
-  - [Group therapy](#group-therapy)
-- [Expected effect](#expected-effect)
+  - [Group Therapy](#group-therapy)
+- [Expected Effect](#expected-effect)
 - [How to connect server](#how-to-connect-server)
 - [Contributor](#contributor)
 
@@ -29,7 +30,7 @@
 <hr>
 <br>
 
-# Getting-start
+# Getting-Start
 
 
 
@@ -123,6 +124,15 @@ Wero is an application that can manage physical health as well as mental health,
 <hr>
 <br>
 
+# Google-Technology
+
+![image](https://user-images.githubusercontent.com/74396651/228865073-9f8befde-2106-4a73-907d-5957978afaa6.png)
+
+
+<br>
+<hr>
+<br>
+
 # Architecture
 
 ![image](https://user-images.githubusercontent.com/74396651/228843955-9e522fea-e780-49c7-abf2-7a221a7a7ad7.png)
@@ -146,7 +156,7 @@ Wero is an application that can manage physical health as well as mental health,
 
 <br>
 
-### Daily test
+### Daily Test
 
 <사진 영역>
 
@@ -162,7 +172,7 @@ Wero is an application that can manage physical health as well as mental health,
 
 <br>
 
-### Notice-board
+### Notice-Board
 
 <사진 영역>
 
@@ -180,7 +190,7 @@ Wero is an application that can manage physical health as well as mental health,
 
 <br>
 
-### Group-therapy
+### Group-Therapy
 
 <사진 영역>
 
@@ -190,21 +200,43 @@ Wero is an application that can manage physical health as well as mental health,
 <hr>
 <br>
 
-## Expected-effect
+# Expected-effect
+![image](https://user-images.githubusercontent.com/82595288/228863954-2b41d857-3282-4da6-8fb9-cc7e4d806263.png)
+### Better Lifestyle Habits
+Using health applications can improve  dietary habits, exercise routines, and sleep habits, ultimately leading to a healthier lifestyle.
+<br/><br/> 
+![image](https://user-images.githubusercontent.com/82595288/228864130-2f04a135-41f0-49f6-9ab8-6d70c33be9f2.png)
+### Stress Reduction
+Applications equipped with stress management features can help users manage and reduce stress more effectively.
+<br/><br/> 
+![image](https://user-images.githubusercontent.com/82595288/228864181-857a1cb9-7f05-4dcd-a38e-0a42f6e951f9.png)
+### Personalized Advice
+Health applications can provide tailored advice based on the user's health status, allowing them to discover individualized health management strategies.
+<br/><br/> 
+![image](https://user-images.githubusercontent.com/82595288/228864246-1b0073be-6ba4-44b3-9ffc-e5eccc4a6f51.png)
+### Healthy Social Relationships
+Health applications can assist users in maintaining healthy social relationships.
 
 <br>
 <hr>
 <br>
 
-## How-to-connect-server
+# How-to-connect-server
+
+### Frontend
+
+### Backend
+
+The backend is deployed in GCP VM Instance. And the domain is http://seonghokim.com:9999 , so please refer to it.
+If you clone and use the project, you must create application-db.yml, application-oauth.yml, application-cloud.yml, and the Json file of GCP IAM Service Account in the resources directory. 
+
+Thank you
 
 <br>
 <hr>
 <br>
 
-## Contributor
-
-
+# Contributor
 
 
 
