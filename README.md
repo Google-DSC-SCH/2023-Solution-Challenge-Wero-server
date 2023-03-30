@@ -263,7 +263,7 @@ Thank you.
       <img src="https://avatars.githubusercontent.com/u/82595288?v=4" width="100px;" alt=""/><br>
       <b>Min Ki Son</b><br>
       <img src="https://img.shields.io/badge/Machine-Learing-FFCA28?style=flat-square&logo=firebase&logoColor=white"/><br>
-      :octocat: <a href="https://https://github.com/thflgg133">Github Link</a><br>
+      :octocat: <a href="https://github.com/thflgg133">Github Link</a><br>
     </td>
   <tr>
 <table>
