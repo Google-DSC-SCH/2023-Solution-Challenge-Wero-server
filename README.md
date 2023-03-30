@@ -18,6 +18,7 @@
 - [Architecture](#architecture)
 - [Functions](#functions)
   - [PATI](#pati)
+  - [Daily Test & Graph](#daily-test-&-graph)
   - [Diary](#diary)
   - [Notice Board](#notice-board)
   - [Recommendation](#recommendation)
@@ -156,11 +157,11 @@ Wero is an application that can manage physical health as well as mental health,
 
 <br>
 
-### Daily Test
+### Daily-Test-&-Graph
 
 <사진 영역>
 
-> You can check 10 questions about physical and mental health every day and how you feel on the day through emoticons. Check your mental and physical health through your test results and provide support messages based on accumulated scores and mood emoticons over the past 7 days!
+> You can check 10 questions about physical and mental health every day and how you feel on the day through emoticons. Check your mental and physical health through your test results and provide support messages based on accumulated scores and mood emoticons over the past 7 days! And also You can check the score from the Daily Test on the graph for 7 days!
 
 <br>
 
@@ -229,7 +230,7 @@ Health applications can assist users in maintaining healthy social relationships
 
 ### Backend
 
-The backend server is deployed in GCP VM Instance. And the domain is http://seonghokim.com:9999, so please refer to it.<br>
+The backend server is already deployed in GCP VM Instance. And the domain is http://seonghokim.com:9999, so please refer to it.<br>
 If you clone and use the project, you must create application-db.yml, application-oauth.yml, application-cloud.yml, and the Json file of GCP IAM Service Account in the resources directory. 
 
 Thank you.
@@ -269,16 +270,6 @@ Thank you.
 <table>
 
 <code>Click Github Link! you can contact us!!</code>
-
-
-
-
-
-
-
-
-
-
 
 
 
