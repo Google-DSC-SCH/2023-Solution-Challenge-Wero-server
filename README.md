@@ -1,5 +1,15 @@
 # 2023-wero-Solution-Challenge-server
-2023 Solution Challenge, Team wero
+
+<br>
+
+# Wero: A health protector for all of us
+
+<img width="204" alt="image" src="https://user-images.githubusercontent.com/82595288/228839635-92427d9b-3475-4310-8e81-45162fd4a8d0.PNG">
+
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#Contributors)
+
+2023 GDSC Solution Challenge Project
 
 # Index
 - [Getting start](#getting-start)
@@ -15,8 +25,57 @@
 - [How to connect server](#how-to-connect-server)
 - [Contributor](#contributor)
 
-# Getting-Start
+<br>
+<hr>
+<br>
 
+# Getting-start
+
+
+
+### About Health
+
+<p align="center">
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/82595288/228840596-f94e6248-8d52-4a7d-a6ac-16b23566fcac.png">  
+
+  
+***`Don't give up! We're always by your side.`***
+  
+  Health refers to a state in which the body and mind are functioning well without any pain or discomfort. It signifies complete functioning and well-being in terms of an individual's ***physiological***, ***psychological***, and ***social aspects***. Health is associated with vitality, energy, and quality of life that we experience on a daily basis.
+  
+### The importance of health
+The growing emphasis on the significance of health in today's society is ***undeniable***, as it holds a prime position among the most crucial values in our lives. When we possess good health, it enables us to pursue more and lead a contented life. Conversely, if our health is poor, it may bring discomfort in daily activities and cause a decline in the quality of our lives. Therefore, maintaining good health is pivotal, as it constitutes one of the most critical factors that contribute to enhancing the overall happiness and quality of our lives.
+  
+### Physical health
+  - Physical health refers to the state of the body being healthy and full of energy.
+  - Maintaining physical health is important through regular exercise and proper eating habits, among other factors.
+  - When physical health is good, individuals can do more in their daily lives, and having a healthy body is necessary for maintaining good mental health as well.
+
+### Mental health
+  - Mental health refers to a healthy and stable state of mind.
+  - Good mental health leads to a happier life and can also contribute to maintaining good physical health.
+  - Maintaining mental health requires managing stress, getting enough rest and sleepand practicing proper self-care, among other things.
+  
+
+## What is Sustainable Development Goals?
+
+![image](https://user-images.githubusercontent.com/33146152/160327143-e36bb1b9-ccea-4f96-b3b2-d92338dd56c5.png)
+
+The Sustainable Development Goals (SGDs) or Global Goals are a collection of 17 interlinked global goals designed to be a "blueprint to achieve a better and more sustainable future for all.
+As can be seen in the figure above, there are 17 goals.
+
+### Our goal
+We decided to create a Flutter application with the goal of ensuring health and promoting well-being for all age groups, among the United Nations' 17 sustainable development goals (SDGs). After the COVID-19 pandemic, we came across an article stating that there is a significant increase in people's interest in health. After reading this article, we began developing an application with the main idea of diagnosing the health status of people all over the world and managing their health through the application, especially for those who are too busy to take care of their health.
+  
+#### Good Health and Well-Being
+
+<img width="143" alt="image" src="https://user-images.githubusercontent.com/33146152/160327288-21a43bdc-3de2-4d36-a26e-9953dc86bc4f.png">
+Wero is an application that can manage physical health as well as mental health, and furthermore build consensus based on physical and health levels rather than specific age groups.
+
+### The reason why we named "Wero"
+![image](https://user-images.githubusercontent.com/82595288/228853918-aa32e6e4-3823-4547-8845-95c0c072c8ec.png)
+  
+"Wero" means "Consolation" in Korean. Additionally, "Wero" is an abbreviation of "We are around u," which represents our commitment to always be by the user's side, managing their physical and mental health. With the slogan "When you feel tired and exhausted, join us. I'm always waiting for you in this place," "Wero" is an app that provides users with the gift of health.
 
 <br>
 <hr>
@@ -85,11 +144,15 @@
   - **Eating habits (E, H) (elephant, hamster), activity (B, S) (Beagle, Sloth))**
   - **Self-esteem (L, M) (Lion, Meerkat), interpersonal relationships (C, F) (Cafibara, Fox)**
 
+<br>
+
 ### Daily test
 
 <사진 영역>
 
 > You can check 10 questions about physical and mental health every day and how you feel on the day through emoticons. Check your mental and physical health through your test results and provide support messages based on accumulated scores and mood emoticons over the past 7 days!
+
+<br>
 
 ### Diary
 
@@ -97,14 +160,17 @@
 
 > You can write a diary at the end of the day! Through the date lookup function of the calendar, you can check how I was in the past. For your information, modifications are not possible to fully remember how you felt that day!
 
+<br>
 
 ### Notice-board
+
+<사진 영역>
 
 > You can post your concerns about your body and health according to the bulletin board function and communicate through comments. What should be noted here is that the author's PATI was exposed to posts and comments so that a consensus could be formed. Our bulletin board also provides news about mental and physical health. Useful news about physical and mental health will help you maintain a healthier lifestyle!
 
 - **Check the issues that are considered a lot by PATI (further development)**
 
-<사진 영역>
+<br>
 
 ### Recommendation
 
@@ -112,9 +178,13 @@
 
 > It's a song recommendation function. We're not just recommending it, but we're recommending those songs after checking out what songs you've heard a lot of with the same PATI as you! In addition, I recommend songs based on Daily Test's mood emoticons!
 
+<br>
+
 ### Group-therapy
 
 <사진 영역>
+
+> Group therapy is consulted by real psychologists and coaches. We guarantee complete secrecy, so feel free to share your concerns! You can also group therapy by tying the same PATI type! You'll be able to relate to each other more because they're the same PATI! Finally, you can test it through a professional psychological test paper, and you can also consult based on the test results!
 
 <br>
 <hr>
