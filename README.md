@@ -232,7 +232,7 @@ Health applications can assist users in maintaining healthy social relationships
 
 ### Backend
 
-The backend server is already deployed in GCP VM Instance. And the domain is http://seonghokim.com:9999, so please refer to it.<br>
+The backend server is already deployed in GCP VM Instance.
 If you clone and use the project, you must create application-db.yml, application-oauth.yml, application-cloud.yml, and the Json file of GCP IAM Service Account in the resources directory. 
 
 Thank you.
