@@ -23,6 +23,6 @@ public class BoardInfoResDto {
         this.boardId = board.getBoardId();
         this.title = board.getTitle();
         this.contents = board.getContents();
-        this.img = board.getImg();
+        this.img = board.getImgLink();
     }
 }

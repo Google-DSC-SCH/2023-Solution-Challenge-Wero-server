@@ -3,6 +3,7 @@ package com.gdsc.wero.domain.board.api;
 import com.gdsc.wero.domain.board.api.dto.request.BoardReqDto;
 import com.gdsc.wero.domain.board.api.dto.response.BoardResListDto;
 import com.gdsc.wero.domain.board.application.BoardService;
+import com.gdsc.wero.domain.board.domain.Board;
 import com.gdsc.wero.global.exception.errortype.GcsUploadFailException;
 import com.gdsc.wero.global.resolver.UserInfoFromHeader;
 import com.gdsc.wero.global.resolver.UserInfoFromHeaderDto;
@@ -57,13 +58,16 @@ public class BoardController {
         String provider = userInfoFromHeaderDto.getProvider();
 
         // GCS
-        String img = "empty";
+        String imgLink = "empty";
+        String imgName = "empty";
 
         // 이미지 저장
-        img = verifyAndSaveImg(imgFile, img);
+        String[] temp = verifyAndSaveImg(imgFile, imgLink, imgName).split(",");
+        imgLink = temp[0];
+        imgName = temp[1];
 
         // 게시물 저장
-        boardService.saveBoard(boardReqDto, img, email, provider);
+        boardService.saveBoard(boardReqDto, imgLink, imgName, email, provider); // imgName 추가, img -> imgLink로 수정
 
         log.info("================ POST HAS BEEN SAVED =================");
 
@@ -82,18 +86,26 @@ public class BoardController {
     public String updateBoard(@PathVariable(value = "boardId") Long boardId, @RequestPart BoardReqDto boardReqDto, @RequestPart(required = false) MultipartFile imgFile) {
 
         // GCS
-        String img = "empty";
+        String imgLink = "empty";
+        String imgName = "empty";
+
+        //이미지 삭제
+        Board board = boardService.getBoard(boardId);
+        gcsService.deleteFileFromGCS(board.getImgName());
 
         // 이미지 저장
-        img = verifyAndSaveImg(imgFile, img);
+        String[] temp = verifyAndSaveImg(imgFile, imgLink, imgName).split(",");
+        imgLink = temp[0];
+        imgName = temp[1];
 
         // 게시물 수정
-        boardService.updateBoard(boardReqDto, img, boardId);
+        boardService.updateBoard(boardReqDto, imgLink, imgName, boardId);
 
         log.info("=============== POST HAS BEEN UPDATED =================");
 
         return "success";
     }
+
 
     @ApiOperation(value = "게시물 삭제 api", notes = "게시물을 삭제한다.")
     @ApiResponses({
@@ -104,7 +116,9 @@ public class BoardController {
     @DeleteMapping("/{boardId}")
     public String deleteBoard(@PathVariable(value = "boardId") Long boardId) {
 
-        boardService.deleteBoard(boardId);
+        String fileName = boardService.deleteBoard(boardId); // 여기서 이미지 가져옴
+
+        gcsService.deleteFileFromGCS(fileName); // 여기서 이미지 이름 넘김
 
         log.info("=============== POST HAS BEEN DELETED =================");
 
@@ -115,15 +129,17 @@ public class BoardController {
     /**
      * Image 확인 및 저장
      */
-    private String verifyAndSaveImg(MultipartFile imgFile, String img) {
+    private String verifyAndSaveImg(MultipartFile imgFile, String imgLink, String imgName) {
 
         if(!(imgFile == null)){
             try {
                 BlobInfo blobInfo = gcsService.uploadFileToGCS(imgFile);
-                img = blobInfo.getMediaLink();
+                imgLink = blobInfo.getMediaLink();
+                imgName = blobInfo.getName();
 
                 log.info("============ IMAGE HAS BEEN SAVED =============");
-                log.info("========== IMAGE LINK : " + blobInfo.getMediaLink() + " ==========");
+                log.info("============ IMAGE LINK : " + blobInfo.getMediaLink() + " ============");
+                log.info("============ IMAGE NAME : " + blobInfo.getName() + "=============");
 
             } catch (IOException e) {
                 log.error(e.getMessage());
@@ -131,7 +147,9 @@ public class BoardController {
             }
         }
 
-        return img;
+        return imgLink +","+imgName;
     }
+
+
 
 }

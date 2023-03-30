@@ -28,15 +28,30 @@ public class GcsService {
         log.info("============= file name : " + uploadFileName);
         log.info("============= content type : " + contentType);
 
-
-        BlobInfo blobInfo =storage.create(
+        BlobInfo blobInfo = storage.create(
                 BlobInfo.newBuilder(gcsInfoProperties.getBucketName(), uploadFileName)
                         .setContentType(contentType)
 //                        .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllAuthenticatedUsers(), Acl.Role.READER))))
                         .build(),
                 imgFile.getInputStream());
 
-
         return blobInfo;
     }
+
+
+
+    public boolean deleteFileFromGCS(String deleteFileName){
+
+        log.info("============ file name : " + deleteFileName);
+
+        BlobInfo blobInfo =storage.create(
+                BlobInfo.newBuilder(gcsInfoProperties.getBucketName(), deleteFileName)
+                        .build());
+        BlobId blobId = blobInfo.getBlobId();
+
+        boolean result = storage.delete(blobId);
+
+        return result;
+    }
+
 }

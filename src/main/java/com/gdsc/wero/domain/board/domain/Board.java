@@ -26,7 +26,8 @@ public class Board extends BaseTimeEntity {
     private String title;
     private String contents;
 
-    private String img;
+    private String imgLink;
+    private String imgName;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_email")
@@ -36,21 +37,23 @@ public class Board extends BaseTimeEntity {
     private List<Reply> reply = new ArrayList<>();
 
     @Builder
-    private Board(String title, String contents, String img, User user) {
+    private Board(String title, String contents, String imgLink, String imgName, User user) {
         this.title = title;
         this.contents = contents;
-        this.img = img;
+        this.imgLink = imgLink;
+        this.imgName = imgName;
         this.user = user;
     }
 
     /**
      * Board 생성 메서드
      */
-    public static Board createBoard(BoardReqDto boarReqDto, String img,User user){
+    public static Board createBoard(BoardReqDto boarReqDto, String imgLink, String imgName,User user){
         return Board.builder()
                 .title(boarReqDto.getTitle())
                 .contents(boarReqDto.getContents())
-                .img(img)
+                .imgLink(imgLink)
+                .imgName(imgName)
                 .user(user)
                 .build();
     }
@@ -58,10 +61,11 @@ public class Board extends BaseTimeEntity {
     /**
      * Board 수정 메서드
      */
-    public void updateBoard(BoardReqDto boardReqDto, String img) {
+    public void updateBoard(BoardReqDto boardReqDto, String imgLink, String imgName) {
         this.title = boardReqDto.getTitle();
         this.contents = boardReqDto.getContents();
-        this.img = img;
+        this.imgLink = imgLink;
+        this.imgName = imgName;
 
     }
 

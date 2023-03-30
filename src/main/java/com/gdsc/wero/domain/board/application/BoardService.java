@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -30,6 +31,15 @@ public class BoardService {
     /**
      * 게시물 조회
      */
+    public Board getBoard(Long boardId){
+
+        return boardRepository.findById(boardId).orElseThrow(() -> new BoardNotExistException("This Post does not exist | boardId : " + boardId));
+    }
+
+
+    /**
+     * 게시물들 조회
+     */
     public BoardResListDto getBoardList(){
         List<BoardInfoResDto> collect = boardRepository.getBoardList()
                 .stream()
@@ -44,11 +54,11 @@ public class BoardService {
     /**
      * 게시물 저장
      */
-    public void saveBoard(BoardReqDto boardReqDto, String img, String email, String provider) {
+    public void saveBoard(BoardReqDto boardReqDto, String imgLink, String imgName, String email, String provider) {
         // 유저 조회
         User user = userRepository.findUserByEmailAndProvider(email, provider).orElseThrow(() -> new UserNotFoundException("User does not exist | email : " + email));
 
-        Board board = Board.createBoard(boardReqDto, img, user);
+        Board board = Board.createBoard(boardReqDto, imgLink, imgName, user);
 
         boardRepository.save(board);
 
@@ -59,10 +69,10 @@ public class BoardService {
     /**
      * 게시물 수정
      */
-    public void updateBoard(BoardReqDto boardReqDto, String img, Long boardId) {
+    public void updateBoard(BoardReqDto boardReqDto, String imgLink, String imgName, Long boardId) {
         Board board = boardRepository.findById(boardId).orElseThrow(() -> new BoardNotExistException("This Post does not exist | boardId : " + boardId));
 
-        board.updateBoard(boardReqDto, img);
+        board.updateBoard(boardReqDto, imgLink, imgName);
 
         log.info("================ POST IS BEING UPDATED ==================");
 
@@ -71,10 +81,17 @@ public class BoardService {
     /**
      * 게시물 삭제
      */
-    public void deleteBoard(Long boardId){
+    public String deleteBoard(Long boardId){
 
-        boardRepository.deleteById(boardId);
+        //조회
+        Board board = boardRepository.findById(boardId).orElseThrow(() -> new BoardNotExistException("This Post does not exist | boardId : " + boardId));
+
+        // 삭제
+        boardRepository.delete(board);
 
         log.info("================ POST IS BEING DELETED ==================");
+
+        // return(이미지 이름)
+        return board.getImgName();
     }
 }
