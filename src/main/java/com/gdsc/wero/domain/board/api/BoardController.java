@@ -22,6 +22,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
+/**
+ * 이미지 저장 및 수정 트랜잭션 영역 합치던가 에러 후 어떻게 할지 정의하기
+ */
 @Slf4j
 @RestController
 @RequiredArgsConstructor
