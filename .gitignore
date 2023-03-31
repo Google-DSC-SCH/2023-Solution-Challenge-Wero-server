@@ -4,8 +4,7 @@ src/main/resources/application-db.yml
 src/main/resources/application-oauth.yml
 src/main/resources/application-cloud.yml
 src/main/resources/solution-challenge-wero-2fc09ab2afef.json
-
-
+src/test/resources/application.yml
 
 
 
