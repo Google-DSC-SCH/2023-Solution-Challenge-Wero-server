@@ -1,8 +1,7 @@
 package com.gdsc.wero.gcsService;
 
-import com.gdsc.wero.domain.board.application.BoardService;
 import com.gdsc.wero.global.util.gcs.GcsInfoProperties;
-import com.gdsc.wero.global.util.gcs.GcsService;
+import com.gdsc.wero.global.util.gcs.GcsUtils;
 import com.google.cloud.storage.BlobId;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
@@ -10,15 +9,12 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.util.UUID;
 
 @SpringBootTest
 public class GcsServiceTest {
 
     @Autowired
-    GcsService gcsService;
+    GcsUtils gcsService;
 
     @Autowired
     Storage storage;

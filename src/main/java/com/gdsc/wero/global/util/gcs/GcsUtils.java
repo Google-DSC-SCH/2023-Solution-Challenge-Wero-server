@@ -3,18 +3,16 @@ package com.gdsc.wero.global.util.gcs;
 import com.google.cloud.storage.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.UUID;
 
 @Slf4j
-@Service
-@Transactional
+@Component
 @RequiredArgsConstructor
-public class GcsService {
+public class GcsUtils {
 
     private final Storage storage;
     private final GcsInfoProperties gcsInfoProperties;
@@ -23,7 +21,6 @@ public class GcsService {
 
         String uploadFileName = UUID.randomUUID().toString();
         String contentType = imgFile.getContentType();
-
 
         log.info("============= file name : " + uploadFileName);
         log.info("============= content type : " + contentType);
